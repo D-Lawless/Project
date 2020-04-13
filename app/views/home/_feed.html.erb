@@ -1,0 +1,13 @@
+<% @events.each do | event | %>
+  <%= event.title %>
+  <%= event.description %>
+  <%= event.location %>
+  <%= event.photo %>
+  <%= event.roles %>
+  <%= event.start_dt %>
+  <%= event.end_dt %>
+  <%= event.user_id %>
+  <%= link_to 'Show', event, class: "level-item" %>
+
+
+  <% end %>
