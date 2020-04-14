@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   resources :events do
-    resources :posts, except: [:show, :index] do
-      resources :comments, except: [:show, :index]
+    resources :posts, except: [:index] do
+      resources :comments, except: [:index]
     end
   end
 

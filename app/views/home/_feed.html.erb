@@ -2,15 +2,15 @@
 
   <div class="card">
 
-    <%= event.title %>  <br>
-    <%= event.description %>  <br>
-    <%= event.location %>  <br>
-    <%= event.photo %>  <br>
-    <%= event.roles %>  <br>
-    <%= event.start_dt %>  <br>
-    <%= event.end_dt %>  <br>
-    <%= event.user_id %>  <br>
-    <%= event.id %>  <br>
+    <h4>Title: <%= event.title %></h4>
+    <h4>Description: <%= event.description %></h4>
+    <h4>Location: <%= event.location %></h4>
+    <h4>Photo: <%= event.photo %></h4>
+    <h4>Roles: <%= event.roles %></h4>
+    <h4>Start: <%= event.start_dt %></h4>
+    <h4>End: <%= event.end_dt %></h4>
+    <h4>User ID: <%= event.user_id %></h4>
+    <h4>Event ID: <%= event.id %></h4>
 
     <%= link_to 'Show', event, class: "level-item" %>
     <%= link_to 'destroy', event, method: :delete, data: {confirm: "Are you sure you want to delete this event?"} %>

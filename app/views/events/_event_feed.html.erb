@@ -1,0 +1,39 @@
+<%# @event.posts.each do |post| %>
+<!--  <div class="card">-->
+<%#= post.title %>
+<!--    <br>-->
+<%#= post.content %>
+
+<%#= link_to 'destroy', @event.post(post), method: :delete, data: {confirm: "Are you sure you want to delete this event?"} %>
+<%#= render 'comments/new' %>
+
+<!--    </div>-->
+<%# end %>
+
+<h1>_event_feed</h1>
+
+<h1>Post Count:<%= @posts.count %></h1>
+<% @posts.each do |post| %>
+  <div class="box">
+    <article class="media">
+      <div class="media-left">
+        <figure class="image is-64x64">
+          image
+        </figure>
+      </div>
+      <div class="media-content">
+        <div class="content">
+          <strong>Post ID:<%= post.id %></strong><br/>
+          <small><%= post.title %></small><br/>
+          <small><%= post.content %></small><br/>
+          <small><%= post.comments.count %></small><br/>
+
+            <%= render 'posts/post_feed' %>
+
+          <%= render 'comments/new' %>
+
+        </div>
+      </div>
+    </article>
+  </div>
+<% end %>

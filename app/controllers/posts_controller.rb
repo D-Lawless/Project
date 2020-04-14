@@ -8,15 +8,22 @@ class PostsController < ApplicationController
   #   @post = current_user.events.post.build(post_params)
   # end
 
+  def show
+
+    @post = Post.find(params[:id])
+
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.event_id = @event.id
-
-    if @post.save
-      redirect_to @event
-    else
-      render 'new'
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+      else
+        format.html { redirect_to @event, notice: 'Event was NOT successfully created.' }
+      end
     end
   end
 

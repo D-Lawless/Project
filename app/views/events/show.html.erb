@@ -1,12 +1,15 @@
-<h1>Event#Show -  <%= @event.title %></h1>
+<h1>Event#Show - This <%= @currentevent.title %></h1> - Working -YES
 <div class="columns has-text-centered">
   <div class="column is-one-third">
   </div>
   <div class="column">
+    events/eventfeed
+    <%= render 'events/event_feed' %>
     <h2>Event Feed</h2>
+    posts/new
     <%= render 'posts/new' %>
-    <%= render 'events/eventFeed' %>
-    <%= render 'comments/new' %>
+
+    <%#= render 'comments/new' %>
 
   </div>
 </div>
