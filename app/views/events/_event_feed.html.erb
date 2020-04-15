@@ -1,76 +1,33 @@
-<%# @event.posts.each do |post| %>
-<!--  <div class="card">-->
-<%#= post.title %>
-<!--    <br>-->
-<%#= post.content %>
+<div class="column">
+  <% @event.posts.each do |post| %>
+    <div class="box">
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <div class="box">
 
-<%#= link_to 'destroy', @event.post(post), method: :delete, data: {confirm: "Are you sure you want to delete this event?"} %>
-<%#= render 'comments/new' %>
-
-<!--    </div>-->
-<%# end %>
-
-<h1>_event_feed</h1>
-
-<h1>Post Count:<%= @posts.count %></h1>
-<%# @posts.each do |post| %>
-<!--  <div class="box">-->
-<!--    <article class="media">-->
-<!--      <div class="media-left">-->
-<!--        <figure class="image is-64x64">-->
-<!--          image-->
-<!--        </figure>-->
-<!--      </div>-->
-<!--      <div class="media-content">-->
-<!--        <div class="content">-->
-<!--          <strong>Post ID:<%#= post.id %></strong><br/>-->
-<!--          <small><%#= post.title %></small><br/>-->
-<!--          <small><%#= post.content %></small><br/>-->
-<!--          <small>Comments<%#= post.comments.count %></small><br/>-->
-          <%#= @comments.count %>
-          <%# post.comments.each do |comment| %>
-<!--            <small><%#= comment.content %></small><br/>-->
-        <%# end %>
+              <p>P-id<%= post.id %></p>
+              <p>E-id<%= post.event_id %></p>
+              <%#= render 'comments/form' %>
+              <p>P-id<%= post.content %></p>
+            </div>
+            <% post.comments.each do |comment| %>
+              <article class="media">
+                <div class="media-content">
+                  <p><%= comment.content %></p>
+                </div>
+              </article>
+            <% end %>
+            <%= simple_form_for([@event, post, @newcomment]) do |f| %>
+              <%= f.text_area :content, class: "input textarea is-dark", rows: "2" %>
+              <%= f.submit "Comment", class: "button is-block is-dark is-grouped-right" %>
+            <% end %>
+          </div>
+        </div>
+      </article>
+    </div>
+  <% end %>
 
 
-
-          <!--          @posts.each do |post|-->
-
-          <!--          @comments.each do |comment|-->
-          <!--          end -->
-          <!--          end-->
-
-          <%# post.comments.each do |comment| %>
-          <!--              <div class="box">-->
-          <!--                <article class="media">-->
-          <!--                  <div class="media-content">-->
-          <!--                    <div class="content">-->
-          <!--                      <strong><%#= comment.content %></strong><br/>-->
-          <!--                    </div>-->
-          <!--                  </div>-->
-          <!--                </article>-->
-          <!--              </div>-->
-          <%# end %>
-
-          <%#= simple_form_for(post.comment.new ) do |f| %>
-          <!--            <form>-->
-          <!--              <div class="field">-->
-          <!--                <div class="control">-->
-          <!--                  <label class="label">Content</label>-->
-          <%#= f.text_area :content, class: "input textarea is-warning", rows: "3" %>
-          <!--                </div>-->
-          <!--              </div>-->
-          <%#= f.submit "Comment", class: "button is-block is-warning is-fullwidth" %>
-          <!--            </form>-->
-          <%# end %>
-
-
-          <%#= render 'posts/post_feed' %>
-
-          <%#= render 'comments/new' %>
-
-<!--        </div>-->
-<!--      </div>-->
-<!--    </article>-->
-<!--  </div>-->
-<%# end %>
+  <%#= render 'posts/form' %>
+</div>

@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :profiles, only: [:new, :show]
+  resources :profiles
+  resources :posts, only: [:new, :show, :create, :index]
 
   get 'events/feed', :to => 'events#feed'
 

@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
 
+  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+
+
   def new
     @profile = current_user.build_profile
   end

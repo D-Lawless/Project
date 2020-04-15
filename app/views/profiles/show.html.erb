@@ -1,0 +1,188 @@
+<!-- Profile -->
+<section class="section" id="about">
+  <div class="columns has-same-height">
+    <div class="column is-one-quarter is-mobile">
+      <!-- Profile -->
+      <div class="card  ">
+        <h3 class="title has-text-centered is-4"><%= @profile.user.username %></h3>
+
+        <div class="card-image">
+          <figure class="image container is-128x128">
+            <img src="https://bulma.io/images/placeholders/256x256.png">
+          </figure>
+        </div>
+        <div class="card-content  ">
+
+          <div class="content">
+            <table class="table-profile">
+              <tr>
+                <th colspan="1"></th>
+                <th colspan="2"></th>
+              </tr>
+              <tr>
+                <td>Name:</td>
+                <td><%= @profile.f_name %> <%= @profile.l_name %></td>
+              </tr>
+              <tr>
+                <td>Role:</td>
+                <td><%= @profile.role %></td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <td>minion@despicable.me</td>
+              </tr>
+            </table>
+          </div>
+          <br>
+          <div class="buttons has-addons is-centered">
+            <%#= link_to 'Add Friend', connections_path(:contact_id => @profile.id), :method => :post, class: "button is-link" %>
+            <a href="#" class="button is-link">LinkedIn</a>
+            <a href="#" class="button is-link">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-three-quarters is-mobile">
+      <!-- Profile picture -->
+      <div class="card">
+        <div class="card-content">
+          <h3 class="title is-2">About Me</h3>
+          <div class="container">
+            <p><%= @profile.bio %></p>
+            <br/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Events -->
+<section class="section" id="about">
+  <div class="section-heading has-text-centered ">
+    <h3 class="title is-2">Portfolio</h3>
+    <h4 class="subtitle is-5">Have a goo at what I've been up to:</h4>
+
+
+    <div class="columns">
+      <% @profile.user.events.each do |event| %>
+        <div class="column">
+          <div class="card">
+            <table>
+              <thead>
+              <tr>
+                <th>Title</th>
+              </tr>
+              <tbody>
+              <td><%= event.title %></td>
+              </tbody>
+            </table>
+            <table>
+              <thead>
+              <tr>
+                <th>About</th>
+              </tr>
+              <tbody>
+              <td><%= event.description %></td>
+              </tbody>
+            </table>
+            <table>
+              <thead>
+              <tr>
+                <th>Location</th>
+              </tr>
+              <tbody>
+              <td><%= event.location %></td>
+              </tbody>
+            </table>
+            <table>
+              <thead>
+              <tr>
+                <th>#Posts</th>
+              </tr>
+              <tbody>
+              <td><%= event.posts.count %></td>
+              </tbody>
+            </table>
+            <td><%= link_to 'Show', event %></td>
+            <td><%= link_to 'Edit', edit_event_path(event) %></td>
+            <td><%= link_to 'Destroy', event, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+
+
+<!--  <p></p>-->
+
+
+<%#= link_to 'View Event', event_path(event.id) %>
+<!--  </div>-->
+<!--  </div>-->
+<%# end %>
+<!--  </div>-->
+
+<!--        <div class="column">-->
+<!--          <div class="card is-shady">-->
+<!--            <div class="card-content">-->
+<!--              <div class="content">-->
+<!--                <h3><%#= event.title %></h3><br />-->
+<!--                <p><%#= event.about %></p>-->
+<%#= event.location %>
+<!--                <div class="container">-->
+<!--                  <span class="button is-link modal-button"> See More</span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<%# end %>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!--    <tr>-->
+<!--      <td><%#= event.title %></td>-->
+<!--      <td><%#= event.about %></td>-->
+<!--      <td><%#= event.location %></td>-->
+<!--      <td><%#= event.start_dt %></td>-->
+<!--      <td><%#= event.end_dt %></td>-->
+<!--    </tr>-->
+<!--    </table>-->
+
+<%# end %>
+
+<!--  <h1>Connections</h1>-->
+
+<!--  <table>-->
+<!--    <tr>-->
+<!--      <th>Sender</th>-->
+<!--      <th>Recipient</th>-->
+
+<!--    </tr>-->
+<%# @profile.user.connections.each do |connection| %>
+
+<!--      <tr>-->
+<!--        <td><%#= connection.user_id %></td>-->
+<!--        <td><%#= connection.contact_id.username %></td>-->
+<!--      </tr>-->
+<!--      </table>-->
+
+<%# end %>
+
+<%#= link_to 'Add Friend', connections_path(:contact_id => @profile.id), :method => :post %>
+<%#= link_to 'Edit', edit_profile_path(@profile) %>
+<%#= link_to 'Back', profiles_path %>
+

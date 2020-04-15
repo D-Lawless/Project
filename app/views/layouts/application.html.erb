@@ -41,11 +41,11 @@
               <% if current_user.profile == nil %>
               <p class="control">
                 <%= link_to 'Create Profile', new_profile_path, class: "button is-info" %>
-              </p>
-            <% else %>
-              <p class="control">
-                <%= link_to 'Profile', current_user.profile %>
-              </p>
+<!--              </p>-->
+            <%# else %>
+<!--              <p class="control">-->
+                <%#= link_to 'Profile', current_user.profile %>
+<!--              </p>-->
             <% end %>
           <% else %>
             <p class="control">
@@ -58,19 +58,19 @@
           <%= link_to 'New Event', new_event_path, class: "button is-dark is-inverted" %>
           </p>
           <%# if user_signed_in? %>
-<!--            <p class="control">-->
-              <%#= link_to current_user.username, edit_user_registration_path, class: "button is-dark" %>
-<!--            </p>-->
-<!--            <p>-->
-              <%#= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-dark" %>
-<!--            </p>-->
+          <!--            <p class="control">-->
+          <%#= link_to current_user.username, edit_user_registration_path, class: "button is-dark" %>
+          <!--            </p>-->
+          <!--            <p>-->
+          <%#= link_to "Logout", destroy_user_session_path, method: :delete, class: "button is-dark" %>
+          <!--            </p>-->
           <%# else %>
-<!--            <p class="control">-->
-              <%#= link_to 'Sign In', new_user_session_path, class: "button is-dark" %>
-<!--            </p>-->
-<!--            <p class="control">-->
-              <%#= link_to 'Sign Up', new_user_registration_path, class: "button is-dark" %>
-<!--            </p>-->
+          <!--            <p class="control">-->
+          <%#= link_to 'Sign In', new_user_session_path, class: "button is-dark" %>
+          <!--            </p>-->
+          <!--            <p class="control">-->
+          <%#= link_to 'Sign Up', new_user_registration_path, class: "button is-dark" %>
+          <!--            </p>-->
           <%# end %>
         </div>
       </div>
