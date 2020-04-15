@@ -5,15 +5,73 @@ class EventsController < ApplicationController
 
   def show
 
-    @currentevent = Event.find(params[:id])#Working
-    @posts = @currentevent.posts.all.order("created_at DESC") #Working
+    @event = Event.find(params[:id])
 
-    @currentpost = Post.find_by(params[:post_id]) #Not_Working
-    @comments = @currentpost.comments.all.order("created_at DESC") #Not_Working
+
+
+
+
+
+
+
+
+
+
+
+    # @currentevent = Event.find_by(params[:event_id])
+    # @posts = @currentevent.posts.all.order("created_at DESC") #Working
+    #
+    # @comments = []
+    # @posts.each do |post|
+    #   tcom = Comment.where(post_id: post.id)
+    #   @comments += tcom if tcom
+    # end
+    #
+
+
+
+    # @posts.each do |post|
+    #   @comments = post.comments.all.order("created_at DESC")
+    # end
+
+#     @/currentevent = Event.find(params[:id])#Working
+#
+# @/posts = @/currentevent.posts.all.order("created_at DESC") #Working
+#
+# @/posts.each do |post|
+#
+#       @/comments = Comment.where(post_id: post.id)
+#
+# end
+
+
+    # @currentevent = Event.find(params[:id])#Working
+    # @posts = @currentevent.posts.all.order("created_at DESC") #Working
+    #
+    # @posts.each do |post|
+    #   @currentevent = Event.find_by(params[:event_id])#Working
+    #   @currentpost = Post.where(post_id: post.id)
+    #   @comments = Comment.where(post_id: post.id)
+    #   @newcomment = Comment.new #Working
+    #
+    #
+    # end
+
+    #
+    # @currentpost = Post.find_by(params[:post_id])
+    # @comments = @currentpost.comments.all.order("created_at DESC")
+
+    # @currentevent, @currentpost, @newcomment
+
+
+
+    # @currentpost = Post.find_by(params[:post_id]) #Not_Working
+    # @comments = @currentpost.comments.all.order("created_at DESC") #Not_Working
 
 
     @newpost = Post.new #Working
-    @newcomment = Comment.new #Working
+    @newcomment = Comment.new
+
 
   end
 

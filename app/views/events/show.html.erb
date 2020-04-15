@@ -1,15 +1,36 @@
-<h1>Event#Show - This <%= @currentevent.title %></h1> - Working -YES
-<div class="columns has-text-centered">
-  <div class="column is-one-third">
-  </div>
-  <div class="column">
-    events/eventfeed
-    <%= render 'events/event_feed' %>
-    <h2>Event Feed</h2>
-    posts/new
-    <%= render 'posts/new' %>
+<!--<h1>Event#Show - This <%#= @currentevent.title %></h1> - Working -YES-->
+<!--<div class="columns has-text-centered">-->
+<!--  <div class="column is-one-third">-->
+<!--  </div>-->
+<!--  <div class="column">-->
+<!--    events/eventfeed-->
+<%#= render 'events/event_feed' %>
+<!--    <h2>Event Feed</h2>-->
+<!--    posts/new-->
+<%#= render 'posts/new' %>
 
-    <%#= render 'comments/new' %>
+<%#= render 'comments/new' %>
 
+<!--  </div>-->
+<!--</div>-->
+
+<% @event.posts.each do |post| %>
+  <div class="card">
+    <!--  <p><%#= post.title %></p>-->
+    <p>P-id<%= post.id %></p>
+    <p>E-id<%= post.event_id %></p>
+    <%#= render 'comments/form' %>
+    <% post.comments.each do |post| %>
+      <p>P-id<%= post.content %></p>
+    <% end %>
+    <%= simple_form_for([@event, post, @newcomment]) do |f| %>
+      <%= f.text_area :content, class: "input textarea is-warning", rows: "3" %>
+      <%= f.submit "Comment", class: "button is-block is-warning is-fullwidth" %>
+    <% end %>
+
+    <%#= simple_form_for post.comment do |f| %>
+    <%#= f.input :content %>
+    <%# end %>
   </div>
-</div>
+<% end %>
+<%= render 'posts/form' %>

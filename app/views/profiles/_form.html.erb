@@ -1,0 +1,42 @@
+<%#= form_with(model: profile, local: true) do |f| %>
+  <%= form_for @profile do |f| %>
+
+
+    <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+        <% profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'First Name:' %>
+    <%= f.text_field :f_name, autocomplete: "First Name"  %>
+  </div>
+  <div class="field">
+    <%= f.label 'Last Name:' %>
+    <%= f.text_field :l_name, autocomplete: "Last Name"  %>
+  </div>
+  <div class="field">
+    <%= f.label 'Bio:' %>
+    <%= f.text_area :bio, autocomplete: "About Me"  %>
+  </div>
+  <div class="field">
+    <%= f.label 'Profile:' %>
+    <%= f.text_field :profile_pic, autocomplete: "About Me"  %>
+  </div>
+  </div>
+  <div class="field">
+    <%= f.label 'Role:' %>
+    <%= f.text_field :role, autocomplete: "Role"  %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
