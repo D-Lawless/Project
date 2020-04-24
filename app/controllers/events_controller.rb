@@ -6,15 +6,7 @@ class EventsController < ApplicationController
   def show
 
     @event = Event.find(params[:id])
-
-
-
-
-
-
-
-
-
+    @members = @event.event_group.group_members.all
 
 
 
@@ -71,15 +63,17 @@ class EventsController < ApplicationController
 
     @newpost = Post.new #Working
     @newcomment = Comment.new
+    @newmember = GroupMember.new
 
 
   end
 
   def create
     @event = current_user.events.build(event_params)
-
     respond_to do |format|
       if @event.save
+        @eventgroup = EventGroup.create!(event_id: @event.id)
+        @groupmember = GroupMember.create!(user_id: current_user.id, event_group_id: @eventgroup.id, is_admin: true)
 
         format.html { redirect_to root_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
@@ -106,8 +100,12 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :location, :photo, :roles, :start_dt, :end_dt)
+    params.require(:event).permit(:title, :description, :location, :cover_photo, :roles, :start_dt, :end_dt)
   end
+
+  # def group_params
+  #   params.require(:event_group).permit(:user_id, :event_id, :is_admin)
+  # end
 
   def set_params
 

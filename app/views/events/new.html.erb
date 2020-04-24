@@ -1,2 +1,17 @@
-NEW EVENT!
-<%= render 'events/form' %>
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-8 is-offset-2">
+        <h3 class="title has-text-black">Create Event</h3>
+        <hr class="login-hr">
+        <p class="subtitle has-text-black">Let's get started</p>
+        <div class="box">
+          <%= render 'form', event: @event %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<%= link_to 'Back', events_path %>

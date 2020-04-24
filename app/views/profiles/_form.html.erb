@@ -1,73 +1,22 @@
-<%#= form_with(model: profile, local: true) do |f| %>
-  <%#= form_for @profile do |f| %>
-
-
-    <%# if profile.errors.any? %>
-<!--    <div id="error_explanation">-->
-<!--      <h2><%#= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>-->
-
-<!--      <ul>-->
-        <%# profile.errors.full_messages.each do |message| %>
-<!--          <li><%#= message %></li>-->
-        <%# end %>
-<!--      </ul>-->
-<!--    </div>-->
-  <%# end %>
-
-<!--  <div class="field">-->
-    <%#= f.label 'First Name:' %>
-    <%#= f.text_field :f_name, autocomplete: "First Name"  %>
-<!--  </div>-->
-<!--  <div class="field">-->
-    <%#= f.label 'Last Name:' %>
-    <%#= f.text_field :l_name, autocomplete: "Last Name"  %>
-<!--  </div>-->
-<!--  <div class="field">-->
-    <%#= f.label 'Bio:' %>
-    <%#= f.text_area :bio, autocomplete: "About Me"  %>
-<!--  </div>-->
-<!--  <div class="field">-->
-    <%#= f.label 'Profile:' %>
-    <%#= f.text_field :profile_pic, autocomplete: "About Me"  %>
-<!--  </div>-->
-<!--  </div>-->
-<!--  <div class="field">-->
-    <%#= f.label 'Role:' %>
-    <%#= f.text_field :role, autocomplete: "Role"  %>
-<!--  </div>-->
-
-<!--  <div class="actions">-->
-    <%#= f.submit %>
-<!--  </div>-->
-<%# end %>
-
-<%#= form_for @profile do |f| %>
-
-  <%#= simple_form_for @profile.new do |f| %>
-
-    <%#= f.text_field :f_name, class: "input is-large" %>
-
-<%# end %>
-
 <%= simple_form_for(@profile) do |f| %>
   <%# if profile.errors.any? %>
-<!--    <div id="error_explanation">-->
-<!--      <h2><%#= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>-->
+  <!--    <div id="error_explanation">-->
+  <!--      <h2><%#= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>-->
 
-<!--      <ul>-->
-        <%# profile.errors.full_messages.each do |message| %>
-<!--          <li><%#= message %></li>-->
-        <%# end %>
-<!--      </ul>-->
-<!--    </div>-->
+  <!--      <ul>-->
+  <%# profile.errors.full_messages.each do |message| %>
+  <!--          <li><%#= message %></li>-->
+  <%# end %>
+  <!--      </ul>-->
+  <!--    </div>-->
   <%# end %>
   <section class="hero is-fullheight">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <div class="column is-4 is-offset-4">
-          <h3 class="title has-text-black">Sign Up</h3>
+        <div class="column is-6 is-offset-3">
+          <h3 class="title has-text-black">Create Profile</h3>
           <hr class="login-hr">
-          <p class="subtitle has-text-black">Create Profile <br> Complete the fields below to create profile</p>
+          <p class="subtitle has-text-black"><br> Complete the fields below to create profile</p>
           <div class="box">
             <form>
               <div class="field">
@@ -83,20 +32,23 @@
                 </div>
               </div>
 
-
               <div class="field">
                 <div class="control">
                   <label class="label">About Me:</label>
-                  <%= f.text_area :bio, class: "input is-large" %>
+                  <%= f.text_area :bio, class: "input is-large textarea", rows: "4" , require: 'required' %>
                 </div>
               </div>
+
 
               <div class="field">
                 <div class="control">
                   <label class="label">Profiler:</label>
-                  <%= f.text_field :profile_pic, class: "input is-large" %>
+                  <%= f.file_field :profile_pic, multiple: false, direct_upload: true %>
                 </div>
               </div>
+
+
+
               <div class="field">
                 <div class="control">
                   <label class="label">Role:</label>
@@ -127,17 +79,17 @@
 
 
 <%#= form_with(model: profile, local: true) do |f| %>
-  <%# if profile.errors.any? %>
+<%# if profile.errors.any? %>
 <!--    <div id="error_explanation">-->
 <!--      <h2><%#= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>-->
 
 <!--      <ul>-->
-        <%# profile.errors.full_messages.each do |message| %>
+<%# profile.errors.full_messages.each do |message| %>
 <!--          <li><%#= message %></li>-->
-        <%# end %>
+<%# end %>
 <!--      </ul>-->
 <!--    </div>-->
-  <%# end %>
+<%# end %>
 <!--  <section class="hero is-fullheight">-->
 <!--    <div class="hero-body">-->
 <!--      <div class="container has-text-centered">-->
@@ -150,13 +102,13 @@
 <!--              <div class="field">-->
 <!--                <div class="control">-->
 <!--                  <label class="label">First Name:</label>-->
-                  <%#= f.text_field :f_name, class: "input is-large" %>
+<%#= f.text_field :f_name, class: "input is-large" %>
 <!--                </div>-->
 <!--              </div>-->
 <!--              <div class="field">-->
 <!--                <div class="control">-->
 <!--                  <label class="label">Last Name:</label>-->
-                  <%#= f.text_field :l_name, class: "input is-large" %>
+<%#= f.text_field :l_name, class: "input is-large" %>
 <!--                </div>-->
 <!--              </div>-->
 
@@ -164,27 +116,27 @@
 <!--              <div class="field">-->
 <!--                <div class="control">-->
 <!--                  <label class="label">About Me:</label>-->
-                  <%#= f.text_area :bio, class: "input is-large" %>
+<%#= f.text_area :bio, class: "input is-large" %>
 <!--                </div>-->
 <!--              </div>-->
 
 <!--              <div class="field">-->
 <!--                <div class="control">-->
 <!--                  <label class="label">Profiler:</label>-->
-                  <%#= f.text_field :profile_pic, class: "input is-large" %>
+<%#= f.text_field :profile_pic, class: "input is-large" %>
 <!--                </div>-->
 <!--              </div>-->
 <!--              <div class="field">-->
 <!--                <div class="control">-->
 <!--                  <label class="label">Role:</label>-->
-                  <%#= f.text_field :role, class: "input is-large" %>
+<%#= f.text_field :role, class: "input is-large" %>
 <!--                </div>-->
 <!--              </div>-->
 
 
 
 
-              <%#= f.submit "Create Profile", class: "button is-block is-info is-large is-fullwidth" %>
+<%#= f.submit "Create Profile", class: "button is-block is-info is-large is-fullwidth" %>
 
 
 <!--            </form>-->

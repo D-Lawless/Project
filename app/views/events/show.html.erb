@@ -1,10 +1,62 @@
-<h1>Event#Show - This <%= @event.title %></h1> - Working -YES
-<div class="columns has-text-centered">
-  <div class="column is-one-third">
-  </div>
-  <div class="column">
-    <%= render 'events/event_feed' %>
-  </div>
-</div>
+<!--<h1><%#= @event.id %></h1>-->
+<!--<h1>Event Id:<%#= @event.event_group.event_id %></h1>-->
 
 
+
+<!-- Profile -->
+<section class="section" id="about">
+  <div class="columns has-same-height">
+    <div class="column is-one-quarter is-mobile">
+      <!-- Profile -->
+      <div class="card  ">
+        <h3 class="title has-text-centered is-4"><%= @event.title %></h3>
+
+        <div class="card-image">
+          <figure class="image container is-128x128">
+            <img src="https://bulma.io/images/placeholders/256x256.png">
+          </figure>
+        </div>
+        <div class="card-content  ">
+
+          <div class="content">
+            <table class="table-profile">
+              <tr>
+                <th colspan="1"></th>
+                <th colspan="2"></th>
+              </tr>
+              <tr>
+                <td>About</td>
+                <td><%= @event.description %> </td>
+              </tr>
+              <tr>
+                <td>Roles:</td>
+                <td><%= @event.roles %></td>
+              </tr>
+              <tr>
+                <td>Members:</td>
+                <td><%= @members.count %></td>
+              </tr>
+            </table>
+          </div>
+          <br>
+          <div class="buttons has-addons is-centered">
+
+            <%= link_to 'Members', event_group_members_path(@event.event_group), class: "button is-link" %>
+            <%= link_to 'Join Group', event_group_members_path(@event.event_group), class: "button is-link" %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="column is-two-thirds is-mobile">
+      <%= render 'events/event_feed' %>
+    </div>
+
+  </div>
+</section>
+
+<!--  </div>-->
+
+<!--</div>-->

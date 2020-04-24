@@ -7,6 +7,7 @@ ruby '2.6.5'
 gem 'bulma-rails'
 gem 'devise'
 gem 'simple_form'
+gem 'aws-sdk-s3', require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'

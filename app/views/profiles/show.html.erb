@@ -8,7 +8,9 @@
 
         <div class="card-image">
           <figure class="image container is-128x128">
-            <img src="https://bulma.io/images/placeholders/256x256.png">
+            <%#= image_tag(@profile.profile_pic) %>
+
+<!--            <img src="https://bulma.io/images/placeholders/256x256.png">-->
           </figure>
         </div>
         <div class="card-content  ">
@@ -29,7 +31,7 @@
               </tr>
               <tr>
                 <td>Email:</td>
-                <td>minion@despicable.me</td>
+                <td><%= @profile.user.email %></td>
               </tr>
             </table>
           </div>
@@ -38,6 +40,7 @@
             <%#= link_to 'Add Friend', connections_path(:contact_id => @profile.id), :method => :post, class: "button is-link" %>
             <a href="#" class="button is-link">LinkedIn</a>
             <a href="#" class="button is-link">Facebook</a>
+            <%= link_to 'Add Friend', connections_path(:contact_id => @profile.id), :method => :post, class: "button is-link" %>
           </div>
         </div>
       </div>

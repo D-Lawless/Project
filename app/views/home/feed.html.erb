@@ -1,30 +1,31 @@
-<h1>Home#feed</h1>
-<p>Find me in app/views/home/feed.html.erb</p>
-<h1 class="has-text-centered">Events</h1>
 <div class="columns has-text-centered">
-  <div class="column is-one-third">
-    <h2>Profile Partial</h2>
+  <div class="column is-one-quarter is-mobile">
+
+    <% if user_signed_in? && current_user.profile != nil %>
+      <%= render 'profiles/profile' %>
+    <% else %>
+      ALTERNITIVE
+  <% end %>
+
   </div>
   <div class="column">
-    <h2>Events Feed</h2>
     <%= render 'feed' %>
   </div>
-
 </div>
 
 <!--<section class="section">-->
 <!--  <div class="container">-->
 <!--    <div class="columns">-->
-      <%# if user_signed_in? %>
-        <%# if current_user.profile != nil %>
-          <%#= render 'profile' %>
-        <%# end %>
-      <%# else %>
-        <%#= render 'trends' %>
-      <%# end %>
+<%# if user_signed_in? %>
+<%# if current_user.profile != nil %>
+<%#= render 'profile' %>
+<%# end %>
+<%# else %>
+<%#= render 'trends' %>
+<%# end %>
 
-      <%#= render 'feed' %>
-      <%#= render 'who-to-follow' %>
+<%#= render 'feed' %>
+<%#= render 'who-to-follow' %>
 <!--    </div>-->
 <!--  </div>-->
 <!--</section>-->

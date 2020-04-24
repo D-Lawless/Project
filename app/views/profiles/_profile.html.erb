@@ -1,0 +1,44 @@
+<!-- Profile -->
+<section>
+  <div class="column ">
+    <div class="box">
+      <article class="media">
+        <div class="media-content">
+          <div class="content has-text-centered">
+            <div class="card  ">
+              <div class="card-content  ">
+                <h3 class="title has-text-centered is-4">
+                  <%= current_user.profile.f_name %> <%= current_user.profile.l_name %>
+                </h3>
+                <div class="content">
+                  <table class="table-profile">
+                    <tr>
+                      <th colspan="1"></th>
+                      <th colspan="2"></th>
+                    </tr>
+                    <tr>
+                      <td>Userame:
+                      <td> @<%= current_user.username %><br/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Role:</td>
+                      <td><%= current_user.profile.role %></td>
+                    </tr>
+                    <tr>
+                      <td>Email:</td>
+                      <td><%= current_user.email %></td>
+                    </tr>
+                  </table>
+                </div>
+                <br>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+

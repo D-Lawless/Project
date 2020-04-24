@@ -1,0 +1,2 @@
+class EventGroupController < ApplicationController
+end

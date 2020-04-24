@@ -1,0 +1,42 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-8 is-offset-2">
+        <h3 class="title has-text-black">Members</h3>
+        <hr class="login-hr">
+        <div class="box">
+          <table class="table is-fullwidth">
+            <thead>
+            <tr>
+              <th>Username</th>
+              <th>Name</th>
+              <th>Admin</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @group_members.each do |group_member| %>
+
+            <tr>
+              <td><%= group_member.user.username %></td>
+
+              <td><%= group_member.user.profile.f_name %> <%= group_member.user.profile.l_name %></td>
+
+              <td><%= group_member.is_admin %></td>
+
+              <% if group_member.is_admin? %>
+                <td><a href="/downgrade/<%= group_member.id %>" class="button is-small">Remove Admin</a></td>
+              <% else %>
+                <td><a href="/upgrade/<%= group_member.id %>" class="button is-small">_Make   Admin_</a></td>
+              <% end %>
+
+              <td><a href="/upgrade/<%= group_member.id %>" class="button is-small">Remove Member</a></td>
+            </tr>
+              <% end %>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
