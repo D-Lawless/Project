@@ -6,5 +6,6 @@ class Profile < ApplicationRecord
   validates :role, presence: true
   validates :user_id, presence: true
   has_one_attached :profile_pic
+  has_one_attached :resume
 
 end

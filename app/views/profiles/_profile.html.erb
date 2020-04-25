@@ -5,11 +5,14 @@
       <article class="media">
         <div class="media-content">
           <div class="content has-text-centered">
-            <div class="card  ">
+            <div class="card">
+              <h3 class="title has-text-centered is-4"><%= current_user.profile.f_name %> <%= current_user.profile.l_name %></h3>
+              <div class="card-image">
+                <figure class="image is-2by1">
+                  <%= image_tag(current_user.profile.profile_pic) %>
+                </figure>
+              </div>
               <div class="card-content  ">
-                <h3 class="title has-text-centered is-4">
-                  <%= current_user.profile.f_name %> <%= current_user.profile.l_name %>
-                </h3>
                 <div class="content">
                   <table class="table-profile">
                     <tr>
@@ -31,8 +34,6 @@
                     </tr>
                   </table>
                 </div>
-                <br>
-
               </div>
             </div>
           </div>

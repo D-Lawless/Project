@@ -1,54 +1,52 @@
 <section>
-  <div class="column ">
-    <% if @event.posts.count == 0 %>
-      <div class="box">
-        <article class="media">
-          <div class="media-content">
-            <div class="content has-text-centered">
-              <h2>Oppps . . . There seems to be no events!</h2>
-              <h3>Why not add one?</h3>
-            </div>
-          </div>
-        </article>
+  <%# if @event.posts.empty? %>
+  <!--      <h4 class="subtitle is-5">Get out there! <br>Connect, Collaborate, Create</h4>-->
+  <%# else %>
+  <!--      <h4 class="subtitle is-5">Have a goo at what I've been up to:</h4>-->
+  <%# end %>
+  <%# if @event.posts.count == 0 %>
+  <!--      <div class="content has-text-centered">-->
+  <!--        <h2>No Posts yet!</h2>-->
+  <!--        <h3>Why not add one?</h3>-->
+  <!--      </div>-->
+  <%# end %>
+
+  <% if user_signed_in? %>
+    <article class="media box">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img src="https://bulma.io/images/placeholders/64x64.png">
+        </p>
+      </figure>
+      <div class="media-content">
+        <%= render 'posts/form' %>
       </div>
-    <% end %>
-    <% if user_signed_in? %>
-      <article class="media box">
-        <figure class="media-left">
-          <p class="image is-64x64">
-            <img src="https://bulma.io/images/placeholders/64x64.png">
-          </p>
-        </figure>
+    </article>
+  <% end %>
+  <% @event.posts.each do |post| %>
+    <div class="box has-background-light">
+      <article class="media">
         <div class="media-content">
-          <%= render 'posts/form' %>
+          <div class="content">
+            <div class="box">
+
+              <p><%= post.title %></p>
+              <p><%= post.content %></p>
+            </div>
+            <% post.comments.each do |comment| %>
+              <article class="media">
+                <div class="media-content">
+                  <p><%= comment.content %></p>
+                </div>
+              </article>
+            <% end %>
+            <%= simple_form_for([@event, post, @newcomment]) do |f| %>
+              <%= f.text_area :content, class: "input textarea is-dark", rows: "2" %>
+              <%= f.submit "Comment", class: "button is-block is-dark is-grouped-right" %>
+            <% end %>
+          </div>
         </div>
       </article>
-    <% end %>
-    <% @event.posts.each do |post| %>
-      <div class="box has-background-light">
-        <article class="media">
-          <div class="media-content">
-            <div class="content">
-              <div class="box">
-
-                <p><%= post.title %></p>
-                <p><%= post.content %></p>
-              </div>
-              <% post.comments.each do |comment| %>
-                <article class="media">
-                  <div class="media-content">
-                    <p><%= comment.content %></p>
-                  </div>
-                </article>
-              <% end %>
-              <%= simple_form_for([@event, post, @newcomment]) do |f| %>
-                <%= f.text_area :content, class: "input textarea is-dark", rows: "2" %>
-                <%= f.submit "Comment", class: "button is-block is-dark is-grouped-right" %>
-              <% end %>
-            </div>
-          </div>
-        </article>
-      </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </section>

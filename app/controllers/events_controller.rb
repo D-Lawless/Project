@@ -8,59 +8,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @members = @event.event_group.group_members.all
 
-
-
-    # @currentevent = Event.find_by(params[:event_id])
-    # @posts = @currentevent.posts.all.order("created_at DESC") #Working
-    #
-    # @comments = []
-    # @posts.each do |post|
-    #   tcom = Comment.where(post_id: post.id)
-    #   @comments += tcom if tcom
-    # end
-    #
-
-
-
-    # @posts.each do |post|
-    #   @comments = post.comments.all.order("created_at DESC")
-    # end
-
-#     @/currentevent = Event.find(params[:id])#Working
-#
-# @/posts = @/currentevent.posts.all.order("created_at DESC") #Working
-#
-# @/posts.each do |post|
-#
-#       @/comments = Comment.where(post_id: post.id)
-#
-# end
-
-
-    # @currentevent = Event.find(params[:id])#Working
-    # @posts = @currentevent.posts.all.order("created_at DESC") #Working
-    #
-    # @posts.each do |post|
-    #   @currentevent = Event.find_by(params[:event_id])#Working
-    #   @currentpost = Post.where(post_id: post.id)
-    #   @comments = Comment.where(post_id: post.id)
-    #   @newcomment = Comment.new #Working
-    #
-    #
-    # end
-
-    #
-    # @currentpost = Post.find_by(params[:post_id])
-    # @comments = @currentpost.comments.all.order("created_at DESC")
-
-    # @currentevent, @currentpost, @newcomment
-
-
-
-    # @currentpost = Post.find_by(params[:post_id]) #Not_Working
-    # @comments = @currentpost.comments.all.order("created_at DESC") #Not_Working
-
-
     @newpost = Post.new #Working
     @newcomment = Comment.new
     @newmember = GroupMember.new
@@ -75,7 +22,7 @@ class EventsController < ApplicationController
         @eventgroup = EventGroup.create!(event_id: @event.id)
         @groupmember = GroupMember.create!(user_id: current_user.id, event_group_id: @eventgroup.id, is_admin: true)
 
-        format.html { redirect_to root_path, notice: 'Event was successfully created.' }
+        format.html { redirect_to event_path(@event), notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }

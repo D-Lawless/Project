@@ -21,12 +21,29 @@
 }
 
 // round images
+//.image {
+//  border-radius: 50%;
+//  img {
+//    border-radius: 50%;
+//  }
+//}
 .image {
-  border-radius: 50%;
-  img {
-    border-radius: 50%;
-  }
+
+  border: 1px solid;
+  overflow: hidden;
+
+
 }
+
+.cover {
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+
+
 .notification:not(:last-child) {
   margin-bottom: 0;
 }

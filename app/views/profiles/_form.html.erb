@@ -1,14 +1,14 @@
 <%= simple_form_for(@profile) do |f| %>
   <%# if profile.errors.any? %>
-  <!--    <div id="error_explanation">-->
-  <!--      <h2><%#= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>-->
+<!--      <div id="error_explanation">-->
+<!--        <h2><%#= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>-->
 
-  <!--      <ul>-->
+<!--        <ul>-->
   <%# profile.errors.full_messages.each do |message| %>
-  <!--          <li><%#= message %></li>-->
+<!--            <li><%#= message %></li>-->
   <%# end %>
-  <!--      </ul>-->
-  <!--    </div>-->
+<!--        </ul>-->
+<!--      </div>-->
   <%# end %>
   <section class="hero is-fullheight">
     <div class="hero-body">
@@ -19,18 +19,35 @@
           <p class="subtitle has-text-black"><br> Complete the fields below to create profile</p>
           <div class="box">
             <form>
-              <div class="field">
-                <div class="control">
-                  <label class="label">First Name:</label>
-                  <%= f.text_field :f_name, class: "input is-large" %>
+              <div class="columns">
+                <div class="column">
+                  <div class="field">
+                    <div class="control">
+                      <label class="label">First Name:</label>
+                      <%= f.text_field :f_name, class: "input is-large" %>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="column">
+                  <div class="field">
+                    <div class="control">
+                      <label class="label">Last Name:</label>
+                      <%= f.text_field :l_name, class: "input is-large" %>
+                    </div>
+                  </div>
                 </div>
               </div>
+
               <div class="field">
                 <div class="control">
-                  <label class="label">Last Name:</label>
-                  <%= f.text_field :l_name, class: "input is-large" %>
+                  <label class="label">Role:</label>
+                  <%= f.text_field :role, class: "input is-large" %>
                 </div>
               </div>
+
+
+
 
               <div class="field">
                 <div class="control">
@@ -38,7 +55,6 @@
                   <%= f.text_area :bio, class: "input is-large textarea", rows: "4" , require: 'required' %>
                 </div>
               </div>
-
 
               <div class="field">
                 <div class="control">
@@ -49,12 +65,36 @@
 
 
 
+              SOCIAL (OPTIONAL)
+
+
+
               <div class="field">
                 <div class="control">
-                  <label class="label">Role:</label>
-                  <%= f.text_field :role, class: "input is-large" %>
+                  <label class="label">Resume:</label>
+                  <%= f.file_field :resume, multiple: false, direct_upload: true, :class => "ui pink button" %>
                 </div>
               </div>
+
+              <div class="field">
+                <div class="control">
+                  <label class="label">Facebook:</label>
+                  <%= f.text_field :facebook, class: "input is-large" %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <label class="label">Twitter:</label>
+                  <%= f.text_field :twitter, class: "input is-large" %>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <label class="label">Instagram:</label>
+                  <%= f.text_field :instagram, class: "input is-large" %>
+                </div>
+              </div>
+
 
 
 
