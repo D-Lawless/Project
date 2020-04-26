@@ -1,82 +1,83 @@
-<%# if @events.count == 0 %>
-<!--  <div class="box">-->
-<!--    <article class="media">-->
-<!--      <div class="media-content">-->
-<!--        <div class="content has-text-centered">-->
-<!--          <h2>Oppps . . . There seems to be no events!</h2>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </article>-->
-<!--  </div>-->
-<%# else %>
+<% if @events.count == 0 %>
+  <div class="box">
+    <article class="media">
+      <div class="media-content">
+        <div class="content has-text-centered">
+          <h2 class="is-size-3">Ooops . . . <br>
+            There currently seems to be no events!</h2>
+        </div>
+      </div>
+    </article>
+  </div>
+<% else %>
+  <% @events.each do |event| %>
+    <div class="box ">
+      <div class="columns ">
+        <div class="column is-one-quarter has-text-centered">
+          <div class="section">
+            <div class="card-image">
+              <figure class="image container is-128x128">
+                <% if event.user.profile.profile_pic.present? %>
+                  <%= image_tag(event.user.profile.profile_pic, class: 'is-rounded') %>
+                <% end %>
+              </figure>
+            </div>
+            <div class="card-content  ">
+              <h3 class="title has-text-centered is-4">@<%= event.user.username %></h3>
+              <small><%= event.user.profile.role %></small>
+            </div>
+          </div>
 
-<% @events.each do |event| %>
-  <div class="box ">
-    <div class="columns ">
-      <div class="column is-one-quarter has-text-centered">
-        <div class="section">
-          <div class="card-image">
-            <figure class="image container is-128x128">
-              <% if event.user.profile.profile_pic.present? %>
-                <%= image_tag(event.user.profile.profile_pic, class: 'is-rounded') %>
-              <% end %>
-            </figure>
+
+          <!--        <h4><%#= image_tag(event.user.profile.profile_pic) %></h4>-->
+
+
+
+          <%# if event.user.profile.instagram.present? %>
+          <!--          <figure class="image container is-128x128">-->
+
+          <%#= image_tag(event.user.profile.profile_pic) %>
+          <!--          </figure>-->
+          <%# end %>
+          <!--        <figure>-->
+          <%#=  %>
+
+          <!--          <img src="https://bulma.io/images/placeholders/64x64.png">-->
+          <!--        </figure>-->
+          <!--        <h4><%#= link_to '@' + event.user.username, event.user.profile %></h4>-->
+          <!--        <h4><%#= event.user.profile.role %></h4>-->
+        </div>
+        <div class="column has-text-centered">
+
+          <h3 class="title is-3 "><%= event.title %></h3>
+          <div class="media">
+
           </div>
-          <div class="card-content  ">
-            <h3 class="title has-text-centered is-4">@<%= event.user.username %></h3>
-            <small><%= event.user.profile.role %></small>
-          </div>
+          <h4 class="subtitle is-4">
+            <%= truncate(event.description, length: 300, separator: ' ') %>
+
+            <%#= truncate(event.description) { link_to "Continue", event } %>
+
+
+            <%#= event.description %>
+          </h4>
+          <h4>Location: <%= event.location %></h4>
+          <small>Start - <%= event.start_dt.strftime('%A, %b %d, %Y') %></small> <br>
+          <small>End - <%= event.end_dt.strftime('%A, %b %d, %Y') %></small><br>
+
+
+          <%= link_to 'Show', event, class: "button is-dark" %>
+          <% if current_user == event.user %>
+            <%= link_to 'destroy', event, method: :delete, data: {confirm: "Are you sure you want to delete this event?"}, class: "button is-dark" %>
+          <% end %>
+
         </div>
 
 
-        <!--        <h4><%#= image_tag(event.user.profile.profile_pic) %></h4>-->
-
-
-
-        <%# if event.user.profile.instagram.present? %>
-        <!--          <figure class="image container is-128x128">-->
-
-        <%#= image_tag(event.user.profile.profile_pic) %>
-        <!--          </figure>-->
-        <%# end %>
-        <!--        <figure>-->
-        <%#=  %>
-
-        <!--          <img src="https://bulma.io/images/placeholders/64x64.png">-->
-        <!--        </figure>-->
-        <!--        <h4><%#= link_to '@' + event.user.username, event.user.profile %></h4>-->
-        <!--        <h4><%#= event.user.profile.role %></h4>-->
       </div>
-      <div class="column has-text-centered">
-
-        <h3 class="title is-3 "><%= event.title %></h3>
-        <div class="media">
-
-        </div>
-        <h4 class="subtitle is-4">
-          <%= truncate(event.description, length: 300, separator: ' ') %>
-
-          <%#= truncate(event.description) { link_to "Continue", event } %>
-
-
-          <%#= event.description %>
-        </h4>
-        <h4>Location: <%= event.location %></h4>
-        <small>Start - <%= event.start_dt.strftime('%A, %b %d, %Y') %></small> <br>
-        <small>End - <%= event.end_dt.strftime('%A, %b %d, %Y') %></small><br>
-
-
-        <%= link_to 'Show', event, class: "button is-dark" %>
-        <% if current_user == event.user %>
-          <%= link_to 'destroy', event, method: :delete, data: {confirm: "Are you sure you want to delete this event?"}, class: "button is-dark" %>
-        <% end %>
-
-      </div>
-
 
     </div>
-
-  </div>
+  <% end %>
 <% end %>
 
 
