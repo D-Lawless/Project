@@ -27,12 +27,17 @@
 //    border-radius: 50%;
 //  }
 //}
-.image {
+
+.profile_image {
 
   border: 1px solid;
   overflow: hidden;
 
 
+}
+
+.rounded_image {
+  border-radius: 50%;
 }
 
 .cover {
@@ -41,7 +46,6 @@
   overflow: hidden;
 
 }
-
 
 
 .notification:not(:last-child) {

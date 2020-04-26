@@ -22,17 +22,20 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to @event, notice: 'Post was successfully created.' }
       else
-        format.html { redirect_to @event, notice: 'Event was NOT successfully created.' }
+        format.html { redirect_to @event, notice: 'Post was NOT successfully created.' }
       end
     end
   end
 
   def destroy
+    @event = Event.find_by(params[:event_id])
+    @post = Post.find_by(params[:post_id])
+
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to @event, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to @event, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
