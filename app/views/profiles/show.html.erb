@@ -6,7 +6,7 @@
       <div class="card  ">
         <h3 class="title has-text-centered is-4">@<%= @profile.user.username %></h3>
         <div class="card-image">
-          <figure class="image container is-128x128">
+          <figure class="image container is-128x128 profile_image">
             <%= image_tag(@profile.profile_pic) %>
           </figure>
         </div>
@@ -82,8 +82,10 @@
                 </div>
                 <div class="card-content">
                   <div class="content">
-                    <%= event.title %>
-                    <%= truncate(event.description, length: 150, separator: ' ')%>
+                    <h5 class="is-size-5"><%= event.title %></h5>
+                    <%= truncate(event.description, length: 150, separator: ' ') %>
+                    <br>
+
 
                     <%#= event.description %>
                     <br>
@@ -105,35 +107,30 @@
 
 <section class="section">
 
-    <div class="container">
-      <div
-        class="columns is-multiline"
-        data-aos="fade-in"
-        data-aos-easing="linear"
-      >
-        <div class="column is-12 about-me">
-          <h1 class="title has-text-centered section-title">
-            <%= @profile.f_name %>'s Resume
-          </h1>
-        </div>
-        <div class="column is-10 has-text-centered is-offset-1">
-          <%= link_to rails_blob_path(@profile.resume, disposition: 'preview'), target: :_blank, class: "button is-dark" do %>
+  <div class="container">
+    <div class="columns is-multiline" data-aos="fade-in" data-aos-easing="linear">
+      <div class="column is-12 about-me">
+        <h1 class="title has-text-centered section-title">
+          <%= @profile.f_name %>'s Resume
+        </h1>
+      </div>
+      <div class="column is-10 has-text-centered is-offset-1">
+        <%= link_to rails_blob_path(@profile.resume, disposition: 'preview'), target: :_blank, class: "button is-dark" do %>
               <span>
                 <i class="fa fa-eye"> View Resume</i>
               </span>
-          <% end %>
-        </div>
-        <div class="column is-10 has-text-centered is-offset-1">
+        <% end %>
+      </div>
+      <div class="column is-10 has-text-centered is-offset-1">
 
-
-          <%= link_to 'View Resume', class: "button is-dark", target: :_blank do %>
+        <%= link_to rails_blob_path(@profile.resume, disposition: 'attachment'), class: "button is-dark" do %>
               <span>
                 <i class="fa fa-download"> Download Resume</i>
               </span>
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
+  </div>
 </section>
 
 

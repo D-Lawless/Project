@@ -3,7 +3,10 @@ class GroupMembersController < ApplicationController
 
 
   def index
-    @group_members = GroupMember.all.order("created_at DESC")
+    @event = Event.find(params[:event_id])
+    @groupcount = @event.event_group.group_members.count
+
+    # @group_members = @event.event_group.group_members.all
   end
 
 
@@ -21,6 +24,13 @@ class GroupMembersController < ApplicationController
       end
     end
   end
+
+  # def join
+  #   @event = Event.find(params[:event_id])
+  #   @eventgroup = @event.event_group
+  #   @group_member = GroupMember.create!(event_group_id: @eventgroup.id, user_id: current_user.id, is_admin: false)
+  #
+  # end
 
   # PATCH/PUT /group_members/1
   # PATCH/PUT /group_members/1.json

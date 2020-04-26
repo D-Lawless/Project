@@ -1,31 +1,17 @@
-<!--<section class="section">-->
-<!--  <div class="columns has-same-height">-->
-<%# if user_signed_in? && current_user.profile != nil %>
-<%#= render 'profiles/profile' %>
-<%# else %>
-<!--        ALTERNITIVE-->
-<%# end %>
-<!--    <div class="column is-mobile">-->
-<%#= render 'feed' %>
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
-
 <section class="section">
   <div class="columns">
     <div class="column is-one-quarter">
+
       <% if user_signed_in? && current_user.profile != nil %>
         <%= render 'profiles/profile' %>
+      <% elsif user_signed_in? && current_user.profile == nil %>
+        <%= render 'home/create_account' %>
       <% else %>
         <%= render 'home/sign_in' %>
-        <% end %>
+      <% end %>
     </div>
     <div class="column">
       <%= render 'home/feed' %>
     </div>
   </div>
 </section>
-
-
-<%#= render 'profiles/profile' %>
-<%#= render 'feed' %>

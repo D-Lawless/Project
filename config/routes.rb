@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :comments, except: [:index]
     end
     resources :event_group
-    resources :group_members
+    resources :group_members, only: [:create, :index]
   end
 
   resources :profiles

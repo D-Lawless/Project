@@ -13,9 +13,20 @@
       <!-- Event Info -->
 
       <div class="box">
-        <h3 class="title has-text-centered is-4"><%= @event.title %></h3>
-        <h3 class="title has-text-centered is-4"><%= @event.description %></h3>
-        <h3 class="title has-text-centered is-4"><%= @event.roles %></h3>
+        <div class="columns is-mobile is-centered">
+          <div class="column is-four-fifths has-text-centered">
+            <div class="section">
+
+            <h3 class="title is-2"><%= @event.title %></h3>
+              <h3 class="title has-text-centered has-text-weight-normal		is-4"><%= @event.description %></h3>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!--        <h3 class="title has-text-centered is-4"><%#= @event.roles %></h3>-->
       </div>
 
     </div>
@@ -52,9 +63,23 @@
           </div>
 
           <div class="buttons is-centered">
+            <%= @event.event_group.group_members.count %>
             <%= link_to "Members List", event_group_members_path(@event.event_group), class: "button is-dark" %>
-
             <%= link_to "Join Group", event_group_members_path(@event.event_group), class: "button is-dark" %>
+
+            <%#= link_to 'Join Group', {:controller => 'group_members', :action => 'create'}, {:method => :post } %>
+
+
+            <%#= link_to "Join Group", new_event_group_member(current_user.id), class: "button is-dark" %>
+
+
+
+            <%#= button_to "Join Group", :controller => :group_members, :action => 'join', :method => :post, class: "button is-dark"  %>
+
+            <%#= link_to "Join Group", event_group_members_path(@event.event_group), class: "button is-dark" %>
+
+            <%#= link_to 'Join Group', {:controller => 'group_members', :action => 'update'}, {:method => :post } %>
+
 
           </div>
         </div>
