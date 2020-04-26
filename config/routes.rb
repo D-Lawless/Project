@@ -22,12 +22,12 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :show, :create, :index]
 
   get 'events/feed', :to => 'events#feed'
+
+
   get '/upgrade/:id' => 'group_members#upgrade'
   get '/downgrade/:id' => 'group_members#downgrade'
 
   # get '/events/:id/group/add_user' => 'group_members#add_user'
-
-
 
 
 end

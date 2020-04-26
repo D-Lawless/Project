@@ -130,12 +130,8 @@ ActiveRecord::Schema.define(version: 2020_04_26_190018) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "sender_id"
-    t.bigint "receiver_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["receiver_id"], name: "index_users_on_receiver_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["sender_id"], name: "index_users_on_sender_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
