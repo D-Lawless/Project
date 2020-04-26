@@ -1,0 +1,32 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-8 is-offset-2">
+        <h3 class="title has-text-black">Connections</h3>
+        <hr class="login-hr">
+        <div class="box">
+          <table class="table is-fullwidth">
+            <thead>
+            <tr>
+              <th>Username</th>
+              <th>Name</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <% @connections.each do |contact| %>
+
+              <tr>
+                <td><%= contact.username %></td>
+              </tr>
+
+
+            <% end %>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

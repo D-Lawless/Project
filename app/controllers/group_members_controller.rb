@@ -4,15 +4,14 @@ class GroupMembersController < ApplicationController
 
   def index
     @event = Event.find(params[:event_id])
-    @groupcount = @event.event_group.group_members.count
-
-    # @group_members = @event.event_group.group_members.all
+    @group_members = @event.event_group.group_members.all
   end
 
 
-  def create
+  def new
     @event = Event.find(params[:event_id])
     @eventgroup = @event.event_group
+    # @user = current_user if current
     @group_member = GroupMember.create!(event_group_id: @eventgroup.id, user_id: current_user.id, is_admin: false)
     respond_to do |format|
       if @group_member.save

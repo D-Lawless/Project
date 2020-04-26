@@ -37,6 +37,22 @@
             <p class="has-text-dark"><%= @profile.bio %></p>
           </div>
           <br>
+          <%#= link_to "Contacts", new_profile_contact, class: "button is-dark" %>
+
+
+
+
+          <%= link_to "Members List", profile_contacts_path(@profile), class: "button is-dark" %>
+          <%= link_to "Add Contact", new_profile_contact_path(@profile), class: "button is-dark" %>
+
+
+          <% if current_user != @profile.user %>
+          <div class="buttons is-centered">
+            <%= link_to "Add Contact", root_path, class: "button is-dark" %>
+          </div>
+            <% end %>
+
+
           <div class="buttons is-centered">
             <% if @profile.facebook.present? %>
               <%= link_to @profile.facebook, class: "button is-dark", target: :_blank do %>
@@ -87,7 +103,6 @@
                     <br>
 
 
-                    <%#= event.description %>
                     <br>
                     <%= link_to 'Event', event, class: "button is-dark" %>
 
@@ -133,20 +148,3 @@
   </div>
 </section>
 
-
-<%#= link_to 'View Resume', rails_blob_path(@profile.resume, disposition: 'preview'), target: :_blank, class: "button is-dark" %>
-<!--      </div>-->
-<!--      <div class="column is-10 has-text-centered is-offset-1">-->
-
-
-<%#= link_to 'Download Resume', rails_blob_path(@profile.resume, disposition: 'attachment'), class: "button is-dark" %>
-
-<%#= link_to 'Sign In', new_user_session_path, class: "button is-dark" %>
-
-
-<%#= link_to document.filename, rails_blob_path(document, disposition: 'attachment') %>
-
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->

@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :event_groups, through: :events
   has_many :group_members
-  has_many :connections
+  has_many :contacts
 
 
 end

@@ -63,23 +63,9 @@
           </div>
 
           <div class="buttons is-centered">
-            <%= @event.event_group.group_members.count %>
+
             <%= link_to "Members List", event_group_members_path(@event.event_group), class: "button is-dark" %>
-            <%= link_to "Join Group", event_group_members_path(@event.event_group), class: "button is-dark" %>
-
-            <%#= link_to 'Join Group', {:controller => 'group_members', :action => 'create'}, {:method => :post } %>
-
-
-            <%#= link_to "Join Group", new_event_group_member(current_user.id), class: "button is-dark" %>
-
-
-
-            <%#= button_to "Join Group", :controller => :group_members, :action => 'join', :method => :post, class: "button is-dark"  %>
-
-            <%#= link_to "Join Group", event_group_members_path(@event.event_group), class: "button is-dark" %>
-
-            <%#= link_to 'Join Group', {:controller => 'group_members', :action => 'update'}, {:method => :post } %>
-
+            <%= link_to "Join Group", new_event_group_member_path(@event), class: "button is-dark" %>
 
           </div>
         </div>

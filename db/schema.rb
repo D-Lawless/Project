@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_170235) do
+ActiveRecord::Schema.define(version: 2020_04_26_190018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 2020_04_25_170235) do
   create_table "connections", force: :cascade do |t|
     t.string "sender"
     t.string "receiver"
+    t.boolean "confirmed"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer "sender"
+    t.integer "receiver"
     t.boolean "confirmed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -122,8 +130,12 @@ ActiveRecord::Schema.define(version: 2020_04_25_170235) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["receiver_id"], name: "index_users_on_receiver_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["sender_id"], name: "index_users_on_sender_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
